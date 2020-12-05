@@ -59,6 +59,36 @@ namespace Webshop.Data
                     Quantity = 20,
                     ImageUrl = @"/Images/MinklashDouble.jpg",
                     Description = "Double pack of falsies, made of faux mink. Cruelty free."
+                },
+                
+                new Models.Product()
+                { 
+                Id = 4,
+                Name = "Stella Lashes",
+                Price = 95,
+                Quantity = 100,
+                ImageUrl = @"/Images/StellaLashes.png",
+                Description = "Long natural lashes."
+                },
+                
+                new Models.Product()
+                { 
+                    Id = 5,
+                    Name = "Individual lashes",
+                    Price = 200,
+                    Quantity = 50,
+                    ImageUrl = @"/Images/Individuals.png",
+                    Description = "Individual lashes, glue not included"
+                },
+                
+                new Models.Product()
+                { 
+                Id = 6,
+                Name = "Duo Lash Adhesive",
+                Price = 100,
+                Quantity = 40,
+                ImageUrl = @"/Images/DuoLashAdhesive.png",
+                Description = "Adhesive for falselashes, not permanent."
                 });
 
         }

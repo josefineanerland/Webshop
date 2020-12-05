@@ -1,24 +1,31 @@
-﻿@model IEnumerable<Webshop.Models.Product> 
+﻿@model IEnumerable<Webshop.Models.Product>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lashline";
 }
 
 <h1>Products</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-@foreach (var item in Model)
+@if (SignInManager.IsSignedIn(User) && User.Identity.Name == "admin@admin.se")
 {
-<div class="card" style="width:300px">
-    <img class="card-img-top" src="@item.ImageUrl" alt="@item.Name">
-    <div class="card-body">
-        <h4 class="card-title">@item.Name</h4>
-        <p class="card-text">@item.Price</p>
-        <a href="#" class="btn btn-primary">Go to product</a>
-    </div>
-</div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
 }
+
+<div class="card-deck" style="padding-left:5px; padding-right:5px;">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width:300px">
+            <img class="card-img-top" src="@item.ImageUrl" alt="@item.Name">
+            <div class="card-body">
+                <h4 class="card-title">@item.Name</h4>
+                <p class="card-text">@item.Price SEK</p>
+                <a href="#" class="btn btn-primary">Go to product</a>
+            </div>
+        </div>
+    }
 
